@@ -69,6 +69,8 @@ describe("sync-jobs parser", () => {
     const html = `
       <main>
         <a href="/about">About us</a>
+        <a href="/applicant-privacy#california-notice">California Privacy Notice</a>
+        <a href="#main">Back To Top</a>
         <a href="/jobs/customer-support">Customer Support Job</a>
         <a href="https://example.com/jobs/customer-support">Customer Support Job</a>
         <a href="/apply/warehouse-associate">Apply for Warehouse Associate</a>

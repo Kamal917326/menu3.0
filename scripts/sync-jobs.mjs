@@ -6,6 +6,21 @@ const DEFAULT_SOURCES_PATH = resolve("config/sources.json");
 const DEFAULT_OUTPUT_PATH = resolve("public/data/jobs.json");
 const USER_AGENT =
   "JobBridgeBot/0.1 (+https://example.com; contact=owner@example.com)";
+const DEFAULT_FALLBACK_EXCLUDES = [
+  "accessibility",
+  "applicant-privacy",
+  "back to top",
+  "cookie",
+  "diversity",
+  "franchise",
+  "inclusion",
+  "privacy",
+  "terms"
+];
+const ROLE_TITLE_PATTERN =
+  /\b(associate|assistant|cashier|cook|crew|customer|developer|driver|engineer|intern|lead|manager|nurse|specialist|support|warehouse)\b/i;
+const JOB_URL_PATTERN =
+  /\/(apply|job|jobs|opening|openings|position|positions|role|roles|vacancy|vacancies)(\/|$|[?#-])/i;
 
 export async function syncJobs({
   sourcesPath = DEFAULT_SOURCES_PATH,
@@ -138,9 +153,8 @@ export function extractLikelyJobLinks(html, source) {
     }
 
     const url = absoluteUrl(href, source.url);
-    const signalText = `${label} ${url}`.toLowerCase();
 
-    if (!/(apply|career|hiring|job|opening|position|role|vacanc)/i.test(signalText)) {
+    if (!isLikelyFallbackJobLink({ label, url, source })) {
       continue;
     }
 
@@ -159,6 +173,30 @@ export function extractLikelyJobLinks(html, source) {
   }
 
   return dedupeJobs(jobs).slice(0, source.maxFallbackLinks || 25);
+}
+
+function isLikelyFallbackJobLink({ label, url, source }) {
+  const signalText = `${label} ${url}`.toLowerCase();
+  const excludedPatterns = [
+    ...DEFAULT_FALLBACK_EXCLUDES,
+    ...(source.fallbackExcludePatterns || [])
+  ];
+
+  if (matchesAnyPattern(signalText, excludedPatterns)) {
+    return false;
+  }
+
+  if (source.fallbackIncludePatterns?.length) {
+    return matchesAnyPattern(signalText, source.fallbackIncludePatterns);
+  }
+
+  const looksLikeRoleTitle = ROLE_TITLE_PATTERN.test(label);
+  const hasJobUrl = JOB_URL_PATTERN.test(url);
+  const isSearchPage =
+    /\/jobs?([/?#]|$)|search-jobs|job-search|careers\/search/i.test(url) &&
+    /\b(career|find|job|join|opening|opportunit|role|search)\b/i.test(label);
+
+  return looksLikeRoleTitle || hasJobUrl || isSearchPage;
 }
 
 function validateSource(source) {
@@ -204,7 +242,9 @@ function dedupeJobs(jobs) {
   const uniqueJobs = [];
 
   for (const job of jobs) {
-    const key = [job.company, job.title, job.applyUrl].map((value) => slugify(value)).join("|");
+    const key = job.applyUrl
+      ? slugify(job.applyUrl)
+      : [job.company, job.title].map((value) => slugify(value)).join("|");
 
     if (seen.has(key)) {
       continue;
@@ -289,6 +329,12 @@ function getAttribute(attributes, name) {
   const pattern = new RegExp(`${name}\\s*=\\s*(["'])(.*?)\\1`, "i");
   const match = attributes.match(pattern);
   return match?.[2] || "";
+}
+
+function matchesAnyPattern(value, patterns) {
+  return patterns.some((pattern) => {
+    return new RegExp(pattern, "i").test(value);
+  });
 }
 
 function toJobTitle(label) {
