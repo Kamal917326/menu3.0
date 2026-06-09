@@ -1,0 +1,14 @@
+[
+  {
+    "name": "McDonald's Careers",
+    "company": "McDonald's",
+    "url": "https://careers.mcdonalds.com/",
+    "enabled": true
+  },
+  {
+    "name": "Inditex Careers",
+    "company": "Zara",
+    "url": "https://www.inditexcareers.com/",
+    "enabled": true
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-06-09T21:09:00.000Z",
+  "demo": true,
+  "jobs": [
+    {
+      "id": "demo-mcdonalds-crew-member",
+      "title": "Restaurant Crew Member",
+      "company": "McDonald's",
+      "location": "Multiple locations",
+      "type": "Full-time / Part-time",
+      "description": "Demo listing used to show how a fetched restaurant role will appear on the job board.",
+      "sourceName": "McDonald's Careers",
+      "sourceUrl": "https://careers.mcdonalds.com/",
+      "applyUrl": "https://careers.mcdonalds.com/",
+      "postedAt": "2026-06-09"
+    },
+    {
+      "id": "demo-zara-sales-assistant",
+      "title": "Sales Assistant",
+      "company": "Zara",
+      "location": "Multiple locations",
+      "type": "Full-time",
+      "description": "Demo listing used to show how a retail career-page role will appear after syncing.",
+      "sourceName": "Inditex Careers",
+      "sourceUrl": "https://www.inditexcareers.com/",
+      "applyUrl": "https://www.inditexcareers.com/",
+      "postedAt": "2026-06-09"
+    },
+    {
+      "id": "demo-remote-support",
+      "title": "Customer Support Specialist",
+      "company": "Example Employer",
+      "location": "Remote",
+      "type": "Full-time",
+      "description": "Demo remote listing that can be replaced by a real employer source in config/sources.json.",
+      "sourceName": "Example Careers",
+      "sourceUrl": "https://example.com/careers",
+      "applyUrl": "https://example.com/careers",
+      "postedAt": "2026-06-09"
+    }
+  ]
+}
