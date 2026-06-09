@@ -84,6 +84,27 @@ Edit `config/sources.json`:
 Every listing stores the original `applyUrl`, so users apply on the official
 career page instead of through JobBridge.
 
+The starter source list now includes:
+
+- Retail and grocery: McDonald's, Zara, Marks & Spencer, Tesco
+- Restaurant and food service: Nando's, Costa Coffee, Pret A Manger,
+  PizzaExpress, Wagamama
+- Entry-level IT: Accenture apprenticeships, Capgemini graduate/apprentice
+  routes, IBM entry-level careers, CGI early careers
+
+To add a small local restaurant, add its official careers page:
+
+```json
+{
+  "name": "Local Restaurant Careers",
+  "company": "Local Restaurant",
+  "url": "https://example-restaurant.com/careers",
+  "category": "restaurant",
+  "defaultLocation": "Your town or city",
+  "enabled": true
+}
+```
+
 ## Important notes
 
 - Respect each website's terms of service and robots.txt.

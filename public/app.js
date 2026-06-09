@@ -106,7 +106,7 @@ function filterJobs() {
   const location = state.location.trim().toLowerCase();
 
   return state.jobs.filter((job) => {
-    const text = [job.title, job.company, job.description, job.sourceName]
+    const text = [job.title, job.company, job.description, job.sourceName, job.category]
       .filter(Boolean)
       .join(" ")
       .toLowerCase();

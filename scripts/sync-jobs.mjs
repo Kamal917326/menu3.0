@@ -132,6 +132,7 @@ export function normalizeJobPosting(posting, source) {
     description:
       cleanText(stripHtml(posting.description || posting.responsibilities || "")) ||
       "View the original posting for the full job description.",
+    category: source.category || "general",
     sourceName: source.name,
     sourceUrl: source.url,
     applyUrl: applyUrl || source.url,
@@ -164,6 +165,7 @@ export function extractLikelyJobLinks(html, source) {
       location: source.defaultLocation || "See posting",
       type: "See posting",
       description: "This role was discovered from a career-page link. Open the original posting for full details.",
+      category: source.category || "general",
       sourceName: source.name,
       sourceUrl: source.url,
       applyUrl: url,
