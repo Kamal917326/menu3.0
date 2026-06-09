@@ -1,0 +1,176 @@
+[
+  {
+    "name": "McDonald's Careers",
+    "company": "McDonald's",
+    "url": "https://careers.mcdonalds.com/",
+    "category": "restaurant",
+    "defaultLocation": "Multiple locations",
+    "enabled": true
+  },
+  {
+    "name": "Inditex Careers",
+    "company": "Zara",
+    "url": "https://www.inditexcareers.com/",
+    "category": "retail",
+    "defaultLocation": "Multiple locations",
+    "enabled": true
+  },
+  {
+    "name": "M&S Careers",
+    "company": "Marks & Spencer",
+    "url": "https://jobs.marksandspencer.com/",
+    "category": "retail",
+    "defaultLocation": "UK",
+    "fallbackIncludePatterns": [
+      "customer assistant",
+      "early careers",
+      "food",
+      "retail",
+      "store"
+    ],
+    "enabled": true
+  },
+  {
+    "name": "Tesco Careers",
+    "company": "Tesco",
+    "url": "https://careers.tesco.com/en_GB/careers/SearchJobs",
+    "category": "retail",
+    "defaultLocation": "UK",
+    "fallbackIncludePatterns": [
+      "customer delivery driver",
+      "tesco colleague",
+      "warehouse operative",
+      "/job/",
+      "/jobs/"
+    ],
+    "enabled": true
+  },
+  {
+    "name": "Nando's Careers",
+    "company": "Nando's",
+    "url": "https://careers.nandos.co.uk/",
+    "category": "restaurant",
+    "defaultLocation": "UK",
+    "fallbackIncludePatterns": [
+      "restaurant team member",
+      "team member jobs",
+      "restaurant manager",
+      "early careers"
+    ],
+    "enabled": true
+  },
+  {
+    "name": "Costa Coffee Careers",
+    "company": "Costa Coffee",
+    "url": "https://costa.dayforcehcm.com/CandidatePortal/en-GB/costa/",
+    "category": "restaurant",
+    "defaultLocation": "UK",
+    "fallbackIncludePatterns": [
+      "apply",
+      "barista",
+      "jobapplication",
+      "store manager",
+      "team leader"
+    ],
+    "enabled": true
+  },
+  {
+    "name": "Pret A Manger Careers",
+    "company": "Pret A Manger",
+    "url": "https://www.pret.co.uk/en-GB/pret-jobs",
+    "category": "restaurant",
+    "defaultLocation": "UK",
+    "fallbackIncludePatterns": [
+      "discover jobs",
+      "team member",
+      "leader",
+      "manager"
+    ],
+    "enabled": true
+  },
+  {
+    "name": "PizzaExpress Careers",
+    "company": "PizzaExpress",
+    "url": "https://www.pizzaexpress.com/careers",
+    "category": "restaurant",
+    "defaultLocation": "UK",
+    "fallbackIncludePatterns": [
+      "apply",
+      "chef",
+      "kitchen",
+      "manager",
+      "team"
+    ],
+    "enabled": true
+  },
+  {
+    "name": "Wagamama Careers",
+    "company": "Wagamama",
+    "url": "https://jobs.wagamama.uk/search",
+    "category": "restaurant",
+    "defaultLocation": "UK",
+    "fallbackIncludePatterns": [
+      "chef",
+      "front of house",
+      "kitchen",
+      "team member"
+    ],
+    "enabled": true
+  },
+  {
+    "name": "Accenture UK Apprenticeships",
+    "company": "Accenture",
+    "url": "https://www.accenture.com/gb-en/careers/life-at-accenture/apprenticeships",
+    "category": "entry-level-it",
+    "defaultLocation": "UK",
+    "fallbackIncludePatterns": [
+      "apprenticeship",
+      "technology",
+      "open roles",
+      "join accenture"
+    ],
+    "enabled": true
+  },
+  {
+    "name": "Capgemini UK Graduates & Apprenticeships",
+    "company": "Capgemini",
+    "url": "https://www.capgemini.com/gb-en/careers/career-paths/graduates-and-apprenticeships/",
+    "category": "entry-level-it",
+    "defaultLocation": "UK",
+    "fallbackIncludePatterns": [
+      "apprentice",
+      "graduate",
+      "software",
+      "technology"
+    ],
+    "enabled": true
+  },
+  {
+    "name": "IBM Entry Level Careers",
+    "company": "IBM",
+    "url": "https://www.ibm.com/careers/career-opportunities",
+    "category": "entry-level-it",
+    "defaultLocation": "UK / Global",
+    "fallbackIncludePatterns": [
+      "apprenticeship",
+      "entry-level",
+      "graduate",
+      "technology"
+    ],
+    "enabled": true
+  },
+  {
+    "name": "CGI UK Early Careers",
+    "company": "CGI",
+    "url": "https://www.cgi.com/uk/en-gb/careers/early-careers/graduates",
+    "category": "entry-level-it",
+    "defaultLocation": "UK",
+    "fallbackIncludePatterns": [
+      "apprentice",
+      "graduate",
+      "student",
+      "technology"
+    ],
+    "enabled": true
+  }
+]

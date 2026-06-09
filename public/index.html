@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Find jobs from company career pages in one searchable place, then apply on the original employer website."
+    />
+    <title>JobBridge - Find jobs faster</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="./" aria-label="JobBridge home">
+          <span class="brand-mark" aria-hidden="true">JB</span>
+          <span>JobBridge</span>
+        </a>
+        <a class="nav-link" href="#jobs">Browse jobs</a>
+      </nav>
+
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">All career pages, one place</p>
+          <h1>Find roles from top companies without opening 20 tabs.</h1>
+          <p class="hero-text">
+            JobBridge collects listings from company career pages, organizes them,
+            and sends applicants back to the employer's official posting to apply.
+          </p>
+          <form class="search-panel" id="search-form" role="search">
+            <label class="sr-only" for="search-input">Search jobs</label>
+            <input
+              id="search-input"
+              type="search"
+              name="q"
+              placeholder="Search title, company, keyword..."
+              autocomplete="off"
+            />
+            <label class="sr-only" for="location-input">Filter by location</label>
+            <input
+              id="location-input"
+              type="search"
+              name="location"
+              placeholder="Location or remote"
+              autocomplete="off"
+            />
+            <button type="submit">Search</button>
+          </form>
+        </div>
+
+        <aside class="hero-card" aria-label="How JobBridge works">
+          <span class="status-dot"></span>
+          <h2>How it works</h2>
+          <ol>
+            <li>Choose trusted company career pages.</li>
+            <li>Sync job data into one clean job feed.</li>
+            <li>Visitors click a job and apply on the official site.</li>
+          </ol>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section class="stats" aria-label="Job board summary">
+        <article>
+          <strong id="total-jobs">0</strong>
+          <span>jobs loaded</span>
+        </article>
+        <article>
+          <strong id="total-companies">0</strong>
+          <span>companies</span>
+        </article>
+        <article>
+          <strong id="last-updated">-</strong>
+          <span>last updated</span>
+        </article>
+      </section>
+
+      <section class="content-shell" id="jobs">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Open roles</p>
+            <h2>Browse jobs</h2>
+          </div>
+          <button class="text-button" id="clear-filters" type="button">Clear filters</button>
+        </div>
+
+        <div class="filters" aria-label="Job filters">
+          <button class="filter-chip active" type="button" data-filter="all">All</button>
+          <button class="filter-chip" type="button" data-filter="remote">Remote</button>
+          <button class="filter-chip" type="button" data-filter="part-time">Part-time</button>
+          <button class="filter-chip" type="button" data-filter="full-time">Full-time</button>
+          <button class="filter-chip" type="button" data-filter="apprenticeship">Apprenticeship</button>
+          <button class="filter-chip" type="button" data-filter="graduate">Graduate</button>
+        </div>
+
+        <div class="notice" id="notice" hidden></div>
+        <div class="job-grid" id="job-list" aria-live="polite"></div>
+        <template id="job-card-template">
+          <article class="job-card">
+            <div class="job-card-top">
+              <div>
+                <p class="company"></p>
+                <h3></h3>
+              </div>
+              <span class="job-type"></span>
+            </div>
+            <p class="job-meta"></p>
+            <p class="job-description"></p>
+            <div class="job-card-footer">
+              <span class="source"></span>
+              <a target="_blank" rel="noopener noreferrer">View original posting</a>
+            </div>
+          </article>
+        </template>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        JobBridge redirects every application to the original employer website.
+        Always verify details before applying.
+      </p>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
