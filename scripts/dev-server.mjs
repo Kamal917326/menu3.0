@@ -1,9 +1,11 @@
 import { createReadStream, existsSync } from "node:fs";
 import { stat } from "node:fs/promises";
 import { createServer } from "node:http";
-import { extname, join, normalize, resolve } from "node:path";
+import { dirname, extname, join, normalize, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const publicDir = resolve("public");
+const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const publicDir = resolve(projectRoot, "public");
 const port = Number(process.env.PORT || 4173);
 
 const contentTypes = {
