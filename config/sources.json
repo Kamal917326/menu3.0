@@ -62,14 +62,15 @@
   {
     "name": "Costa Coffee Careers",
     "company": "Costa Coffee",
-    "url": "https://costacareers.co.uk/",
+    "url": "https://costa.dayforcehcm.com/CandidatePortal/en-GB/costa/",
     "category": "restaurant",
     "defaultLocation": "UK",
     "fallbackIncludePatterns": [
+      "apply",
       "barista",
+      "jobapplication",
       "store manager",
-      "team leader",
-      "search apply"
+      "team leader"
     ],
     "enabled": true
   },
@@ -105,7 +106,7 @@
   {
     "name": "Wagamama Careers",
     "company": "Wagamama",
-    "url": "https://www.wagamama.jobs/",
+    "url": "https://jobs.wagamama.uk/search",
     "category": "restaurant",
     "defaultLocation": "UK",
     "fallbackIncludePatterns": [
@@ -161,7 +162,7 @@
   {
     "name": "CGI UK Early Careers",
     "company": "CGI",
-    "url": "https://www.cgi.com/uk/en-gb/careers/students-graduates",
+    "url": "https://www.cgi.com/uk/en-gb/careers/early-careers/graduates",
     "category": "entry-level-it",
     "defaultLocation": "UK",
     "fallbackIncludePatterns": [

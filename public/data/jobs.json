@@ -76,8 +76,8 @@
       "description": "Coffee-shop role example for customer service and store teams.",
       "category": "restaurant",
       "sourceName": "Costa Coffee Careers",
-      "sourceUrl": "https://costacareers.co.uk/",
-      "applyUrl": "https://costacareers.co.uk/",
+      "sourceUrl": "https://costa.dayforcehcm.com/CandidatePortal/en-GB/costa/",
+      "applyUrl": "https://costa.dayforcehcm.com/CandidatePortal/en-GB/costa/",
       "postedAt": "2026-06-09"
     },
     {
@@ -115,8 +115,8 @@
       "description": "Restaurant floor-team role example from Wagamama's career site.",
       "category": "restaurant",
       "sourceName": "Wagamama Careers",
-      "sourceUrl": "https://www.wagamama.jobs/",
-      "applyUrl": "https://www.wagamama.jobs/",
+      "sourceUrl": "https://jobs.wagamama.uk/search",
+      "applyUrl": "https://jobs.wagamama.uk/search",
       "postedAt": "2026-06-09"
     },
     {
@@ -167,8 +167,8 @@
       "description": "Entry-level technology consulting example from CGI's student and graduate careers page.",
       "category": "entry-level-it",
       "sourceName": "CGI UK Early Careers",
-      "sourceUrl": "https://www.cgi.com/uk/en-gb/careers/students-graduates",
-      "applyUrl": "https://www.cgi.com/uk/en-gb/careers/students-graduates",
+      "sourceUrl": "https://www.cgi.com/uk/en-gb/careers/early-careers/graduates",
+      "applyUrl": "https://www.cgi.com/uk/en-gb/careers/early-careers/graduates",
       "postedAt": "2026-06-09"
     }
   ]
