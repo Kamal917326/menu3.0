@@ -4,8 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const DEFAULT_SOURCES_PATH = resolve("config/sources.json");
 const DEFAULT_OUTPUT_PATH = resolve("public/data/jobs.json");
-const USER_AGENT =
-  "JobBridgeBot/0.1 (+https://example.com; contact=owner@example.com)";
+const USER_AGENT = process.env.JOBBRIDGE_USER_AGENT || "JobBridgeBot/0.1";
 const DEFAULT_FALLBACK_EXCLUDES = [
   "accessibility",
   "applicant-privacy",

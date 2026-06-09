@@ -36,6 +36,12 @@ npm run sync:jobs
 The sync command writes `public/data/jobs.json`, which the website reads on page
 load.
 
+You can identify your crawler with a custom user agent:
+
+```bash
+JOBBRIDGE_USER_AGENT="JobBridgeBot/0.1 (+https://your-domain.com)" npm run sync:jobs
+```
+
 The scraper works best when a career page exposes
 [schema.org `JobPosting`](https://schema.org/JobPosting) JSON-LD. If a site does
 not expose structured job data, the script falls back to likely career/job links.
