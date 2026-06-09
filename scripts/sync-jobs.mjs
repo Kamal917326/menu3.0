@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const DEFAULT_SOURCES_PATH = resolve("config/sources.json");
 const DEFAULT_OUTPUT_PATH = resolve("public/data/jobs.json");
+const DEFAULT_FETCH_TIMEOUT_MS = 8000;
 const USER_AGENT = process.env.JOBBRIDGE_USER_AGENT || "JobBridgeBot/0.1";
 const DEFAULT_FALLBACK_EXCLUDES = [
   "accessibility",
@@ -68,12 +69,31 @@ export async function loadSources(sourcesPath = DEFAULT_SOURCES_PATH) {
 }
 
 export async function fetchCareerPage(source, fetchImpl = fetch) {
-  const response = await fetchImpl(source.url, {
-    headers: {
-      accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      "user-agent": source.userAgent || USER_AGENT
+  const controller = new AbortController();
+  const timeoutMs = Number(source.timeoutMs || DEFAULT_FETCH_TIMEOUT_MS);
+  const timeout = setTimeout(() => {
+    controller.abort();
+  }, timeoutMs);
+
+  let response;
+
+  try {
+    response = await fetchImpl(source.url, {
+      headers: {
+        accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "user-agent": source.userAgent || USER_AGENT
+      },
+      signal: controller.signal
+    });
+  } catch (error) {
+    if (error.name === "AbortError") {
+      throw new Error(`Request timed out after ${timeoutMs}ms`);
     }
-  });
+
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
 
   if (!response.ok) {
     throw new Error(`Request failed with HTTP ${response.status}`);

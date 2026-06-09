@@ -4,6 +4,7 @@ import {
   extractJobsFromHtml,
   extractLikelyJobLinks,
   extractStructuredJobPostings,
+  fetchCareerPage,
   normalizeJobPosting
 } from "../scripts/sync-jobs.mjs";
 
@@ -102,5 +103,20 @@ describe("sync-jobs parser", () => {
 
     assert.equal(jobs.length, 1);
     assert.equal(jobs[0].title, "Software Engineer");
+  });
+
+  it("times out slow career pages", async () => {
+    const neverResolves = (_url, options) => {
+      return new Promise((_resolve, reject) => {
+        options.signal.addEventListener("abort", () => {
+          reject(Object.assign(new Error("Aborted"), { name: "AbortError" }));
+        });
+      });
+    };
+
+    await assert.rejects(
+      fetchCareerPage({ ...source, timeoutMs: 1 }, neverResolves),
+      /timed out/
+    );
   });
 });
